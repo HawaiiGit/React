@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>教练教学</title>
+		<script src="../build/react.js"></script>
+	    <script src="../build/react-dom.js"></script>
+	    <script src="../build/browser.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	    <style type="text/css">
+			#tpCoachTempContainer
+			{
+				width: 100%;
+				height: 84px;
+			}
+			#tpCoachTopDivision
+			{
+				width: 100%;
+				height: 84px;
+			}
+			#tpCoachTopLeft{
+				text-align: center;
+				float: left;
+				margin-top: 2px;
+				width: 20%;
+				height: 80px;
+			}
+			#tpCoachPortrait
+			{
+				width: 65px;
+				height: 80px;
+			}
+			#tpCoachTopRight{
+				width: 80%;
+				height: 84px;
+				float: right;
+			}
+			#topInnerLeft{
+				float: left;
+				margin-left: 12px;
+				width: 40%;
+				height: 70px;
+			}
+			#tpCoachName{
+				color: gray;
+				padding-top: 7px;
+				font-size: 18px;
+			}
+			#tpCoachType{
+				color: gray;
+				padding-top: 15px;
+			}
+			
+			#topInnerRight{
+				text-align: right;
+				float: right;
+				margin-right: 10px;
+				width: 40%;
+				height: 70px;
+			}
+			#tpCPrice{
+				color: gray;
+				padding-top: 7px;
+			}
+			#tpCoachPrice{
+				color: gray;
+				padding-top: 15px;
+			}
+			
+			#tpCoachBottomDivision
+			{
+				width:250%;
+			    white-space:nowrap;
+			    text-overflow:ellipsis;
+			    -o-text-overflow:ellipsis;
+			    overflow: hidden;
+			}
+			#tpCoachDivider{
+				width: 100%;
+				height: 1px;
+				background: gray;
+			}
+			</style>
+
+			
+		<body>
+		
+		<script type="text/babel">
+		
+			var names = [{age:'Alice'}];
+			
+		
+		
+			ReactDOM.render(
+				<div>
+					{
+						names.map(function(name){
+							
+						return 	
+			<div id="tpCoachTempContainer">
+				<div id="tpCoachTopDivision">
+					<div id="tpCoachTopLeft">
+						<img id="tpCoachPortrait" src="../img/coach.jpg"/>
+					</div>
+					<div id="tpCoachTopRight">
+						<div id="topInnerLeft">
+							<div id="tpCoachName">{names.age}</div>
+							<div id="tpCoachType">主教练</div>
+							<div id="tpCoachBottomDivision"></div>
+						</div>
+						<div id="topInnerRight">
+							<div id="tpCPrice">课程起售价</div>
+							<div id="tpCoachPrice">￥13000</div>
+						</div>
+					</div>
+				</div>
+				<div id="tpCoachDivider"></div>
+			</div>
+							
+							
+						})
+			
+						
+					}
+					
+				</div>,
+				document.getElementById('tpCoachContainer')
+			)
+		</script>
+			
+			
+		
+		<div id="tpCoachContainer"></div>
+		</body>
+</html>

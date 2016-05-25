@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>打位预定</title>
+		<script src="../build/react.js"></script>
+		<script src="../build/react-dom.js"></script>
+		<script src="../build/browser.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../js/Utils.js"></script>
+		<style type="text/css">
+			#topInfo {
+				width: 100%;
+				height: 150px;
+				background: black;
+			}
+			
+			#reserveInfoDate,
+			#weatherText {
+				color: white;
+			}
+			
+			.weatherDiv {
+				margin-top: 10px;
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.weatherTemprature {
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+				color: white;
+				font-size: 30px;
+			}
+			
+			#weatherImg {
+				width: 20px;
+			}
+			
+			#jiangshui {
+				width: 100%;
+				height: 1px;
+				background: gray;
+				margin-top: 30px;
+			}
+			
+			#windAndProbabilityOfPrecipitation {
+				color: white;
+				margin-top: 5px;
+			}
+			
+			#daqiushijian {
+				margin-top: 10px;
+				margin-left: auto;
+				margin-right: auto;
+				text-align: center;
+			}
+			
+			#reserveTimeDiv {
+				margin-top: 10px;
+				padding-left: 20px;
+				width: 100%;
+				height: 50px;
+				background: black;
+			}
+			
+			#btnToday,
+			#btnTM,
+			#btnTAT {
+				text-align: center;
+				float: left;
+				width: 50px;
+				height: 50px;
+				background: red;
+				margin-left: 25px;
+			}
+			
+			#reservePicker {
+				margin-top: 40px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
+				height: 30px;
+				background: green;
+			}
+			
+			#btnsendReserve {
+				text-align: center;
+				margin-top: 30px;
+				width: 100%;
+				height: 30px;
+				background: red;
+			}
+			
+			#yuding {
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="reservationContainer"></div>
+		<script type="text/babel">
+			var ResvComponent = React.createClass({ render: function() { return (
+			<div>
+				<div id="topInfo">
+					<span id="reserveInfoDate">
+				2016-05-16
+			</span>
+					<div className="weatherDiv">
+						<img id="weatherImg" src="../img/sun.jpg" />
+						<span id="weatherText">
+						晴
+					</span>
+					</div>
+					<div className="weatherTemprature">
+						10°
+					</div>
+					<div id="jiangshui"></div>
+					<div id="windAndProbabilityOfPrecipitation">
+						风，降水概率
+					</div>
+
+				</div>
+
+				<div id="daqiushijian">
+					<span>
+			打球时间
+			</span>
+				</div>
+				<div id="reserveTimeDiv">
+					<div id="btnToday">
+						<span id="today">
+						今天05-16
+					</span>
+					</div>
+					<div id="btnTM">
+						<span id="tomorrow">
+						今天05-16
+					</span>
+					</div>
+					<div id="btnTAT">
+						<span id="tat">
+						今天05-16
+					</span>
+					</div>
+				</div>
+				<div id="reservePicker">
+					picker
+				</div>
+				<div id="btnsendReserve">
+					<div id="yuding">
+						预定
+					</div>
+				</div>
+			</div>
+			) } }); ReactDOM.render(
+			<ResvComponent/>, document.getElementById("reservationContainer") )
+		</script>
+	</body>
+
+</html>

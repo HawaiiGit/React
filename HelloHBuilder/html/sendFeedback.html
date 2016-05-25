@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>意见反馈</title>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="Utils.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style="text-align: center;">
+	<textarea name="feed" rows="10" cols="40" placeholder="请说出您对球场的意见和建议，这条消息将直接发送到球场老板的手机上"></textarea>
+	<div id="btnSendFeedback" style="margin-left: auto; margin-right: auto; width: 60px;background: red;height: 20px;">
+		提交
+	</div>
+	<script type="text/javascript">
+	var type1 = getUrlParam("type");
+	$(document).ready(function(){
+		$("#btnSendFeedback").bind("click",function(){
+				$.post("http://123.57.210.52:80/api/v1/feedbacks.json",{token:cookieUtil.get("token"),club_uuid:cookieUtil.get("club_uuid"), type:type1,content:$("textarea").val()},function(data){
+				alert("success");
+					
+				});
+
+			});
+	})
+	
+	
+	
+//		$("#btnSendFeedback").bind("click", function(){
+////			$.jsonPOST("http://123.57.210.52:80/api/v1/feedbacks.json",{token:cookieUtil.get("token"),club_uuid:cookieUtil.get"club_uuid", type:type1,content:$("textarea").html()});
+//			alert($("textarea").html());
+//		});
+//	);   
+//		$(function(){
+			
+//		});
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../build/react.js"></script>
+    	<script src="../build/react-dom.js"></script>
+    	<script src="../build/browser.min.js"></script>
+	</head>
+	<body>
+	<div id="aaa">
+		
+	</div>
+		<script type="text/babel">
+			var Ccontainer = React.createClass({
+				
+			componentDidMount: function()
+			{
+					$.get("http://123.57.210.52:80/api/v1/coaches.json",{token:"wNl2Xtjmtw9xU9NGnohQHA",club_uuid:"1e173f24-49b5-46fe-a384-73364b72a5ae"}, function(result) {
+					document.querySelector("template");
+					alert(document.querySelector("template"))
+				})
+			},
+				
+				
+			render: function(){
+				return (
+					<div>
+						<ul>
+						</ul>
+				</div>
+				)
+			}
+			});
+			ReactDOM.render(
+				<Ccontainer/>,document.getElementById("aaa")
+		);
+		</script>
+		
+		
+		<template>
+  		<div>Template used: <span></span></div>
+  		<script>alert('Thanks!')</script>
+		</template>
+	</body>
+</html>

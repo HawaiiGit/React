@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>登录</title>
+	
+	<script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../js/Utils.js"></script>
+</head>
+<body>
+ <div id="signInContainer"></div>
+    <script type="text/babel">
+		var SignIn = React.createClass({
+			getInitialState: function(){
+				return {
+					phone: "",
+            		greeting: "",
+            		welcome: "",	
+            		btnLogin:"",
+            		valCode:"",
+				}
+			},
+			
+			componentDidMount: function()
+			{
+			
+				$("#valRef").hide();
+				$("#btnValCode").hide();
+			},
+
+			handleChange: function(event){
+				 this.setState({
+            	 phone: event.target.value
+          		 });
+          		var re = /[1][3578]\d{9}/;
+          		if(event.target.value.length < 11)
+          			{
+          				this.setState({
+                  			greeting: "",
+                  			welcome: "",
+                  			btnLogin:"",
+                  			valCode:"",
+                  			valState:""
+                  			});
+							$("#valRef").hide();
+							$("#btnValCode").hide();
+          			}
+          		
+				if (re.test(event.target.value))
+				{
+            		$.get("http://123.57.210.52:80/api/v1/welcome.json",{phone:event.target.value}, function(result) {
+              		if(result.exception_code === 20001)
+              		{
+              		 	this.setState({
+              		 	greeting: "用户不存在"
+              		 	})
+              		}
+              			var sentences = result['sentences'];
+              			if (this.isMounted()) {
+                		this.setState({
+                  		greeting: sentences[0],
+                  		welcome: sentences[1],
+                		});
+                		$("#valRef").show();
+						$("#btnValCode").show();	
+              		}
+            	}.bind(this));
+       			}
+			},
+			
+			handleChange1: function(event){
+				this.setState({
+					valCode:event.target.value
+				});
+				if(event.target.value.length != 4)
+					{
+						this.setState({
+							valState:"",
+							btnLogin:""
+						})
+					}
+				else if(event.target.value.length == 4 && this.state.welcome != "")
+				{this.setState({
+							btnLogin:"登录"
+						})	}
+
+			},
+			
+			handleClickLogin: function()
+			{
+				$.post("http://123.57.210.52:80/api/v1/sign_in.json",{phone:this.state.phone,verification_code:this.state.valCode},function(data)
+				{
+					if(data.exception_code === 20003)
+					{
+						this.setState(
+						{
+							valState:"验证码错误",
+							valCode:"",
+							btnLogin:""
+						})
+					}else if(data.user != null)
+					{
+					alert("Success");
+					cookieUtil.set('token',data.user.token,setCookieDate(7));
+					cookieUtil.set('club_uuid',data.club.uuid,setCookieDate(7));
+					cookieUtil.set('uuid1',data.user.uuid,setCookieDate(7));
+					window.location.href = 'homePage.html';
+					}
+				}.bind(this))
+			},
+			
+			render: function(){
+				return <div>
+					<input type="tel" id="" maxLength="11" value={this.state.phone} placeholder="请输入电话号码" onChange={this.handleChange}/>
+					<div id="w1">{this.state.greeting}</div>
+					<div id="w2">{this.state.welcome}</div>
+					<div id="w2">{this.state.valState}</div>
+					<input type="text" id="valRef"  ref="val" maxLength="4" placeholder="验证码" value={this.state.valCode} onChange={this.handleChange1}/>
+					<span id="btnValCode">
+						获取验证码
+					</span>
+
+					<div id="btnLogin" onClick={this.handleClickLogin}>
+						{this.state.btnLogin}
+					</div>
+				</div>
+				
+			}
+			
+		});
+		ReactDOM.render(
+		<SignIn/>
+			,document.getElementById('signInContainer')
+		);
+    </script>
+</body>
+</html>

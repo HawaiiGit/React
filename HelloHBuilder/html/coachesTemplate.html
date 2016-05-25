@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>coachesTemplate</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+		<!--<script src="Utils.js" type="text/javascript"></script>-->
+		
+		<style type="text/css">
+		*{
+			-webkit-margin-before: 0;
+			-webkit-margin-after: 0;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+		}
+		.coachesTemplate{
+			/*border-bottom:1px solid dimgray ;*/
+			/*height: 80px;*/
+			/*padding: 0 10px;*/
+			
+		}
+		.coachesTemplate span{
+			display: block;
+		}
+		.coachesTemplate hr{
+			width: 100%;
+			border-left-width: 0px;
+			border-right-width: 0px;
+		}
+			.coachInfo{
+				float: left;
+				/*width: 80%;*/
+			}
+			.portrait{
+				float: left;
+			}
+			
+			
+			.coachname{
+				float: left;
+				margin-left: 15px;
+				padding-top: 5;
+			}
+			.coachname .name{
+				font-size: 18px;
+			}
+			.coachname span,.classprice .qishoujia{
+				display: block;
+				padding-top: 5px;
+				font-size: 14px;
+				color: gray;
+			}
+			.classprice{
+				float: right;
+				/*margin-left: 15px;*/
+				margin-top:5px ;				
+			}
+			.classprice .price{
+				color: red;
+				padding-top: 5px;
+			}
+			.detail{
+				
+				clear: both;
+				margin-left: 15px;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".coachInfo").css("width",((document.body.clientWidth-50)/document.body.clientWidth*100)+"%");
+			});
+		</script>
+	</head>
+	<body>
+		<div id="coachTempContainer"></div>
+
+		<div>
+			<div class="coachesTemplate" style="width: 100%;">
+				<div class="portrait">
+					<img src="../img/coach.jpg" style="width: 50px;"/>
+				</div>
+				<div class="coachInfo">
+					<div class="coachname">
+						<span class="name">教练</span>
+						<span>主教练</span>
+					</div>
+					<div class="classprice">
+						<span class="qishoujia">课程起售价</span>
+						<span class="price">￥13800.00</span>
+					</div>
+					<div class="detail">
+						<p>aaaaa[Web浏览器] "Uncaught TypeError: Can				white-space:nowrap; 
+				text-overflow:ellipsis;
+				overflow: hidden;</p>
+					</div>
+				</div>
+				<hr/>
+			</div>
+		</div>
+	</body>
+</html>

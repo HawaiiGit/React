@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登陆</title>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js" type="text/javascript"></script>
+	<script src="../js/Utils.js" type="text/javascript">
+	</script>
+	<script src="../build/react.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href=""/>
+	<style type="text/css">
+		#w1
+		{
+			margin-top: 15px;
+		}
+		#vfcode
+		{
+			width: 40px;
+		}
+		#login
+		{
+			margin-top:15px;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<div style="text-align: center">
+	<div>
+	<img src="" alt="">
+	<a href=""></a>
+	
+	</div>
+	<div>
+		<input type="tel" id="telephone" name="phone" maxlength="11" placeholder="请输入手机号码" oninput="validateTel()">
+		<div id="w1"></div>
+		<div id="w2"></div>
+		<input id="vfcode" name="verification_code" maxlength="4" placeholder = "验证码">
+		<span>验证码</span>
+		<span id="login" >登陆</span>
+	</div>
+	<script type = "text/javascript">
+	function validateTel() {
+		var inputTel = $("#telephone").val();
+		    var re = /[1][3578]\d{9}/
+    if (re.test(inputTel)) {
+    	var $tel = $("#telephone").val();
+		 $.getJSON("http://123.57.210.52:80/api/v1/welcome.json",{phone:$("#telephone").val()},function(data){
+		if(data.sentences){
+		 			var $w1 = data.sentences[0];
+		 			var $w2 = data.sentences[1];
+		 			$("#w1").html($w1);
+		 			$("#w2").html($w2);
+		 			
+		 	}else
+		 	{
+		 		alert('用户不存在')
+		 	}
+		 	});
+		 
+		 
+    } else {
+        
+    }
+	}
+	var result;
+	$("#login").click(function(){
+		var $phoneNum = $("#telephone").val();
+		$.post("http://123.57.210.52:80/api/v1/sign_in.json",{phone:$("#telephone").val(),verification_code:$("#vfcode").val()},function(data)
+		{
+			result = data;
+			cookieUtil.set('token',result.user.token,setCookieDate(7));
+			cookieUtil.set('club_uuid',result.club.uuid,setCookieDate(7));
+			cookieUtil.set('uuid1',result.user.uuid,setCookieDate(7));
+			window.location.href = 'FeedBack.html';
+		}.bind(this));
+	});
+	</script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<script src="../build/react.js"></script>
+		<script src="../build/react-dom.js"></script>
+		<script src="../build/browser.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="Utils.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#announceScroll,
+			#announceScrollDate {
+				color: white;
+				padding-left: 2px;
+				width: 170px;
+				height: 15px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			
+			#divBelowAncm1,
+			#divBelowAncm2 {
+				width: 100%;
+				height: 80px;
+				background: white;
+			}
+			
+			#hpBtnPO,
+			#hpBtnCT,
+			#hpBtnPromotions,
+			#hpBtnTabs,
+			#hpBtnProvisions,
+			#hpBtnFeedback {
+				width: 33%;
+				height: 80px;
+				background: white;
+				float: left;
+				text-align: center;
+			}
+			
+			#yuyue,
+			#jiaolian,
+			#shangcheng,
+			#xiaofei,
+			#canyin,
+			#yijian {
+				width: 50px;
+				margin-top: 5px;
+			}
+			
+			#homePageviewpagerDiv {
+				width: 100%;
+				height: 150px;
+				background: url(../img/sy_kamian_bj.png);
+			}
+			
+			#divider1,
+			#divider2,
+			#divider3 {
+				width: 100%;
+				height: 1px;
+				background: gray;
+			}
+			
+			#divider4,
+			#divider5,
+			#divider6,
+			#divider7 {
+				float: left;
+				height: 80px;
+				width: 1px;
+				background: gray;
+			}
+			
+			#dwyy,
+			#jljx,
+			#hysc,
+			#xfjl,
+			#cyfw,
+			#yjfk {
+				color: dimgray;
+				font-size: 13px;
+				margin-top: 2px;
+			}
+			
+			#arrowImg {
+				float: right;
+				width: 7px;
+				margin-left: 15px;
+				margin-right: 5px;
+				margin-top: 7px;
+			}
+			
+			#announceDiv {
+				width: 100%;
+				height: 30px;
+				background: black;
+			}
+			
+			#announceScrollDiv {
+				margin-left: 2px;
+				float: left;
+				width: 170px;
+				height: 30px;
+				background: black;
+				font-size: 13px;
+				text-overflow: ellipsis;
+				-o-text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			
+			#iacscld {
+				float: left;
+				height: 30px;
+				width: 1px;
+				background: gray;
+				margin-left: 2px;
+			}
+			
+			#hpTemprature {
+				float: left;
+				height: px;
+				color: white;
+				font-size: 12px;
+				padding-top: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="homePageContainer"></div>
+		<script type="text/babel">
+			var HomePage = React.createClass({ 
+			handleClick1: function()
+			{
+				window.location.href = 'reservation.html';
+			},
+			handleClick2: function()
+			{
+				window.location.href = 'coaches.html';
+			},
+			handleClick3: function()
+			{
+				
+			},
+			handleClick4: function()
+			{
+				
+			},
+			handleClick5: function()
+			{
+				
+			},
+			handleClick6: function()
+			{
+				window.location.href = 'feedBack.html'
+			},
+			
+			
+			
+			
+			
+			render: function() { return (
+			<div>
+				<div id="homePageviewpagerDiv"></div>
+				<div id="divider1"></div>
+				<div id="announceDiv">
+					<div id="hpTemprature">
+						今天：29℃
+					</div>
+					<div id="iacscld"></div>
+					<div id="announceScrollDiv">
+						<div id="announceScroll">
+							欢迎光临中创高尔夫球场欢迎光临中创高尔夫球场
+						</div>
+						<div id="announceScrollDate">
+							2015年5月16日
+						</div>
+					</div>
+					<img id="arrowImg" src="../img/shouye_arrow_icon.png" />
+				</div>
+
+				<div id="divBelowAncm1">
+					<div id="hpBtnPO" onClick={this.handleClick1}>
+						<img src="../img/shouye_yuyue_icon.png" id="yuyue" />
+						<div id="dwyy">
+							打位预约
+						</div>
+					</div>
+					<div id="divider6"></div>
+					<div id="hpBtnCT" onClick={this.handleClick2}>
+						<img src="../img/shouye_jiaolian_icon.png" id="jiaolian" />
+						<div id="jljx">
+							教练教学
+						</div>
+					</div>
+					<div id="divider7"></div>
+					<div id="hpBtnPromotions" onClick={this.handleClick3}>
+						<img src="../img/shouye_shangcheng_icon.png" id="shangcheng" />
+						<div id="hysc">
+							会员商城
+						</div>
+					</div>
+
+				</div>
+				<div id="divider2"></div>
+
+				<div id="divBelowAncm2">
+					<div id="hpBtnTabs" onClick={this.handleClick4}>
+						<img src="../img/shouye_xiaofei_icon.png" id="xiaofei" />
+						<div id="xfjl">
+							消费记录
+						</div>
+					</div>
+					<div id="divider4"></div>
+					<div id="hpBtnProvisions" onClick={this.handleClick5}>
+						<img src="../img/shouye_canyin_icon.png" id="canyin" />
+						<div id="cyfw">
+							餐饮服务
+						</div>
+					</div>
+					<div id="divider5"></div>
+					<div id="hpBtnFeedback" onClick={this.handleClick6}>
+						<img src="../img/shouye_yijian_icon.png" id="yijian" />
+						<div id="yjfk">
+							意见反馈
+						</div>
+					</div>
+				</div>
+				<div id="divider3"></div>
+			</div>
+			) } }); ReactDOM.render(
+			<HomePage/>,document.getElementById("homePageContainer") )
+		</script>
+
+	</body>
+
+</html>

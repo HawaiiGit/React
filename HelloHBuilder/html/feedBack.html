@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>意见反馈</title>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="Utils.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		body {
+display: block;
+margin: 0px;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+}
+	</style>
+</head>
+<body>
+	<div style="text-align: center;">
+		
+	
+	<div id="div1" style="background: #ff0000; height: 30%;">
+		<div>
+			Manager
+		</div>
+		<hr align=center width=100% color=#987cb9 size=1>
+		<div id="manager" style="vertical-align: middle;display: block;display: inline;">
+			<div>
+				<span style="margin: auto;display: block;display: inline;">
+					总经理
+				</span>
+				
+				<span>
+					<img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1463107260&di=ba7ea8b10f2f5bbfcbf1bad520bd7231&src=http://static.freepik.com/free-photo/right-arrow_318-9317.jpg" style="width: 15px; float: right;display: inline;"/>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="div2" style="background: #ff0000; margin-top: 30px; height: 30%;">
+		<div>
+			Reception
+		</div>
+		<hr align=center width=100% color=#987cb9 size=1>
+		<div id="reception" style="vertical-align: middle;display: block;display: inline;">
+			<div>
+				<span style="margin: auto;display: block;display: inline;">
+					前台
+				</span>
+				
+				<span>
+					<img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1463107260&di=ba7ea8b10f2f5bbfcbf1bad520bd7231&src=http://static.freepik.com/free-photo/right-arrow_318-9317.jpg" style="width: 15px; float: right;display: inline;"/>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="div3" style="background: #ff0000; margin-top: 30px; height: 30%;">
+		<div>
+			Catering
+		</div>
+		<hr align=center width=100% color=#987cb9 size=1>
+		<div id="catering" style="vertical-align: middle;display: block;display: inline;">
+			<div>
+				<span style="margin: auto;display: block;display: inline;">
+					餐厅
+				</span>
+				
+				<span>
+					<img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1463107260&di=ba7ea8b10f2f5bbfcbf1bad520bd7231&src=http://static.freepik.com/free-photo/right-arrow_318-9317.jpg" style="width: 15px; float: right;display: inline;"/>
+				</span>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$("#manager").bind("click",function(){
+				window.location.href = "sendFeedback.html?type=manager";
+			});
+		});
+		$(function(){
+			$("#reception").bind("click",function(){
+				window.location.href = "sendFeedback.html?type=reception";
+			});
+		});
+		$(function(){
+			$("#catering").bind("click",function(){
+				window.location.href = "sendFeedback.html?type=catering";
+			});
+		});
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+							<div>
+								<div className="tabsT1Div">
+								<div className="tabsT1Content floatLeft">
+									<div className="marginTop1 marginLeft1 textGray">消费单号</div>
+									<div className="marginLeft1 marginTop1 textGray">{tbsBasic.sequence}</div>
+								</div>
+								<div className="tabsT1Content floatRight textAlignRight">
+									<div className="marginTop1 marginRight1 textGray">前台支付</div>
+									<div className="marginRight1 marginTop1 textGray">{tbsBasic.reception_payment}</div>
+								</div>
+								</div>
+								<div className="tabsT2Div">
+									<img className="imgWidth marginTop1 marginLeft1 marginRight1 floatLeft" src="../img/xiaofeixinxi_xuanx.png"/>
+									<div className="textSize textOrange paddingTop1">消费时间</div>
+								</div>
+								<div className="divider1"></div>
+								<div className="tabsT2Div">
+									<div className="floatLeft  marginTop1 marginLeft2 textGray">
+										{getLocalTime(tbsBasic.entrance_time).toLocaleString().substr(5,6)}
+									</div>
+									<div className="floatLeft textGray marginTop1 marginLeft2">
+										{getLocalTime(tbsBasic.entrance_time).toLocaleString().substr(13,17)} - {getLocalTime(tbsBasic.departure_time).toLocaleString().substr(13,17)}
+									</div>
+								</div>
+								<div className="tabsT2Div">
+									<img className="imgWidth marginTop1 marginLeft1 marginRight1 floatLeft" src="../img/xiaofeixinxi_xuanx.png"/>
+									<div className="textSize textOrange paddingTop1">消费明细</div>
+								</div>
+								<div className="divider1"></div>
+								<div className="tabsT2Div">
+									<div className="center floatLeft triDivide marginTop1 textGray">消费内容</div>
+									<div className="center floatLeft triDivide marginTop1 textGray">小计</div>
+									<div className="center floatLeft triDivide marginTop1 textGray">付款方式</div>
+								</div>
+								
+
+								<div className="tabsT2Div">
+									<div className="center floatLeft triDivide marginTop1 textGray textSize"></div>
+									<div className="center floatLeft triDivide marginTop1 textGray textSize">12筐球</div>
+									<div className="center floatLeft triDivide marginTop1 textGray textSize">信用卡</div>
+								</div> 
+								
+								<div id="" className="tabsT2Div center">
+									已完成
+								</div>			
+							</div>

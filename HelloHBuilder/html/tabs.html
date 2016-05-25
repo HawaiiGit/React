@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>消费记录</title>
+		<script src="../build/react.js"></script>
+		<script src="../build/react-dom.js"></script>
+		<script src="../build/browser.min.js"></script>
+		<script src="../js/Utils.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<style type="text/css">
+		.tabsT1Div{
+			width: 100%;
+			height: 54px;
+		}
+		.tabsT2Div{
+			width: 100%;
+			height: 27px;
+		}
+		.tabsT1Content{
+			width: 35%;
+			height: 100%;
+		}
+		.divider1{
+			width: 100%;
+			height: 1px;
+			background: orangered;
+		}
+		.divider2{
+			margin-left: auto;
+			margin-right: auto;
+			width: 96%;
+			height: 1px;
+			background: orangered;
+		}
+		.floatLeft{
+			float: left;
+		}
+		.floatRight{
+			float: right;
+		}
+		.center{
+			text-align: center;
+		}
+		.marginTop1{
+			margin-top: 5px;
+		}
+		.paddingTop1{
+			padding-top: 5px;
+		}
+		.marginLeft1{
+			margin-left: 5px;
+		}
+		.marginLeft2
+		{
+			margin-left: 25px;
+		}
+		.marginRight1{
+			margin-right: 5px;
+		}
+		.paddingLeft1{
+			padding-left: 5px;
+		}
+		.textAlignRight
+		{
+			text-align: right;
+		}
+		.textGray
+		{
+			color: gray;
+		}
+		.textOrange
+		{
+			color: orangered;
+		}
+		.imgWidth{
+			width: 13px;
+		}
+		.textSize{
+			font-size: 15px;
+		}
+		.triDivide{
+			width: 33%;
+		}
+	</style>
+	<body>
+		<div id="tabsContainer"></div>
+		<script type="text/babel">
+			var Tabs = React.createClass({
+				getInitialState: function()
+				{
+					return {
+						tabsBasic:[],
+					}
+				},
+				componentDidMount: function(){
+					$.get('http://123.57.210.52:80/api/v1/tabs.json',{token:'s6PnbxTVKzgqcZDe03EdWg',club_uuid:'1e173f24-49b5-46fe-a384-73364b72a5ae'},function(data){
+					var a = getLocalTime(data[1].entrance_time);
+					var b = a.toLocaleString().substr(5,6)
+					this.setState({
+						tabsBasic:data,
+					})
+					}.bind(this))		
+				},
+				render: function()
+				{
+					return (
+						<div>
+							{ this.state.tabsBasic.map(function(tbsBasic){ return (
+								<div>
+								<div className="tabsT1Div">
+								<div className="tabsT1Content floatLeft">
+									<div className="marginTop1 marginLeft1 textGray">消费单号</div>
+									<div className="marginLeft1 marginTop1 textGray">{tbsBasic.sequence}</div>
+								</div>
+								<div className="tabsT1Content floatRight textAlignRight">
+									<div className="marginTop1 marginRight1 textGray">前台支付</div>
+									<div className="marginRight1 marginTop1 textGray">{tbsBasic.reception_payment}</div>
+								</div>
+								</div>
+								<div className="tabsT2Div">
+									<img className="imgWidth marginTop1 marginLeft1 marginRight1 floatLeft" src="../img/xiaofeixinxi_xuanx.png"/>
+									<div className="textSize textOrange paddingTop1">消费时间</div>
+								</div>
+								<div className="divider1"></div>
+								<div className="tabsT2Div">
+									<div className="floatLeft  marginTop1 marginLeft2 textGray">
+										{getLocalTime(tbsBasic.entrance_time).toLocaleString().substr(5,6)}
+									</div>
+									<div className="floatLeft textGray marginTop1 marginLeft2">
+										{getLocalTime(tbsBasic.entrance_time).toLocaleString().substr(13,17)} - {getLocalTime(tbsBasic.departure_time).toLocaleString().substr(13,17)}
+									</div>
+								</div>
+								<div className="tabsT2Div">
+									<img className="imgWidth marginTop1 marginLeft1 marginRight1 floatLeft" src="../img/xiaofeixinxi_xuanx.png"/>
+									<div className="textSize textOrange paddingTop1">消费明细</div>
+								</div>
+								<div className="divider1"></div>
+								<div className="tabsT2Div">
+									<div className="center floatLeft triDivide marginTop1 textGray">消费内容</div>
+									<div className="center floatLeft triDivide marginTop1 textGray">小计</div>
+									<div className="center floatLeft triDivide marginTop1 textGray">付款方式</div>
+								</div>
+								{tbsBasic.items.map(function(tbi){
+									return (
+									<div>
+								    <div className="divider2"></div>
+									<div className="tabsT2Div">
+									<div className="center floatLeft triDivide marginTop1 textGray textSize">{tbi.name}</div>
+									<div className="center floatLeft triDivide marginTop1 textGray textSize">{tbi.total_price}</div>
+									<div className="center floatLeft triDivide marginTop1 textGray textSize">{tbi.total_price}</div>
+									</div> 
+									</div>
+									)})}
+								<div id="" className="tabsT2Div center">
+									已完成
+								</div>			
+							</div>) })}							
+						</div>)}});ReactDOM.render(<Tabs/>,document.getElementById('tabsContainer'))
+		</script>
+	</body>
+</html>
